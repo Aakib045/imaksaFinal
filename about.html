@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — IMAKSA Dubai Real Estate</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:16px;scroll-behavior:smooth;overflow-x:hidden;}
+body{background:#FAFAF8;color:#0A0A0A;font-family:'Inter',sans-serif;font-weight:300;overflow-x:hidden;}
+img{max-width:100%;height:auto;display:block;}a{text-decoration:none;color:inherit;}
+::-webkit-scrollbar{width:2px;}::-webkit-scrollbar-thumb{background:#0D4F4A;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:clamp(14px,2.5vw,26px) clamp(16px,4vw,60px);transition:all .4s;width:100%;}
+nav.sc{background:rgba(250,250,248,.97);backdrop-filter:blur(20px);padding:clamp(10px,1.8vw,16px) clamp(16px,4vw,60px);border-bottom:1px solid rgba(13,79,74,.12);box-shadow:0 2px 24px rgba(0,0,0,.07);}
+.n-logo{font-family:'Fraunces',serif;font-size:clamp(16px,2.5vw,22px);font-weight:400;color:#0D4F4A;letter-spacing:clamp(2px,1vw,4px);}
+.n-links{display:flex;gap:clamp(20px,3vw,40px);list-style:none;}
+.n-links a{color:#6B6B60;font-size:clamp(9px,1.1vw,11px);letter-spacing:1.5px;text-transform:uppercase;transition:color .3s;}
+.n-links a:hover,.n-links a.active{color:#0D4F4A;}
+.n-cta{background:#0D4F4A;color:#F5EFE4;padding:clamp(9px,1.4vw,12px) clamp(18px,2.5vw,28px);font-size:clamp(9px,1.1vw,10px);letter-spacing:2px;text-transform:uppercase;transition:all .3s;font-family:'Inter',sans-serif;}
+.n-cta:hover{background:#1A6B65;}
+.n-hbtn{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:8px;cursor:pointer;}
+.n-hbtn span{display:block;width:22px;height:1.5px;background:#0D4F4A;transition:all .35s;}
+.n-hbtn.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px);}
+.n-hbtn.open span:nth-child(2){opacity:0;}
+.n-hbtn.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px);}
+@media(max-width:900px){.n-links,.n-cta{display:none!important;}.n-hbtn{display:flex!important;}}
+.mob-menu{display:none;position:fixed;inset:0;background:rgba(13,79,74,.99);z-index:998;flex-direction:column;align-items:center;justify-content:center;gap:clamp(24px,5vw,40px);}
+.mob-menu.open{display:flex;}
+.mob-menu a{font-family:'Fraunces',serif;font-size:clamp(28px,8vw,52px);font-weight:300;color:#F5EFE4;letter-spacing:3px;}
+.mob-cta-link{border:1px solid rgba(245,239,228,.4);padding:clamp(12px,3vw,18px) clamp(32px,6vw,56px)!important;font-size:clamp(14px,3.5vw,20px)!important;letter-spacing:4px!important;}
+
+/* PAGE HERO */
+.page-hero{background:#0D4F4A;padding:clamp(120px,15vw,180px) clamp(16px,5vw,72px) clamp(60px,8vw,100px);text-align:center;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=80') center/cover no-repeat;opacity:.1;}
+.page-hero-tag{font-size:clamp(8px,1.3vw,10px);letter-spacing:5px;text-transform:uppercase;color:rgba(245,239,228,.6);margin-bottom:16px;position:relative;}
+.page-hero-title{font-family:'Fraunces',serif;font-size:clamp(36px,7vw,88px);font-weight:300;color:#F5EFE4;line-height:1.05;position:relative;}
+.page-hero-title em{font-style:italic;}
+
+/* SECTIONS */
+.sec{padding:clamp(60px,8vw,120px) clamp(16px,5vw,72px);}
+.sec-tag{font-size:clamp(8px,1.3vw,10px);letter-spacing:5px;text-transform:uppercase;color:#2E8B84;margin-bottom:clamp(10px,1.8vw,18px);}
+.sec-h{font-family:'Fraunces',serif;font-size:clamp(26px,4.5vw,58px);font-weight:300;line-height:1.1;color:#0D4F4A;}
+.sec-h em{font-style:italic;}
+
+/* STORY */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,7vw,100px);align-items:center;}
+.story-img{position:relative;}
+.story-img img{width:100%;aspect-ratio:4/5;object-fit:cover;}
+.story-badge{position:absolute;bottom:-24px;right:-20px;width:clamp(100px,14vw,140px);height:clamp(100px,14vw,140px);background:#0D4F4A;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+.sb-n{font-family:'Fraunces',serif;font-size:clamp(26px,4vw,44px);font-weight:300;color:#F5EFE4;line-height:1;}
+.sb-l{font-size:clamp(6px,1vw,8px);letter-spacing:2px;text-transform:uppercase;color:rgba(245,239,228,.7);margin-top:4px;}
+.story-text p{font-size:clamp(12px,1.4vw,14px);line-height:2.1;color:#6B6B60;margin:clamp(16px,2.5vw,26px) 0;}
+@media(max-width:768px){.story-grid{grid-template-columns:1fr;}.story-img{max-width:460px;margin:0 auto;}}
+
+/* VALUES */
+#values{background:#F5EFE4;}
+.vals-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.5vw,28px);margin-top:clamp(36px,5vw,64px);}
+.val{background:#fff;padding:clamp(28px,4vw,48px) clamp(20px,3vw,36px);border-bottom:3px solid transparent;transition:border-color .4s,transform .4s;}
+.val:hover{border-bottom-color:#0D4F4A;transform:translateY(-4px);}
+.val-icon{font-size:clamp(28px,4vw,40px);margin-bottom:clamp(14px,2vw,22px);}
+.val-title{font-family:'Fraunces',serif;font-size:clamp(18px,2.2vw,24px);color:#0D4F4A;margin-bottom:12px;}
+.val-desc{font-size:clamp(11px,1.3vw,13px);color:#6B6B60;line-height:1.9;}
+@media(max-width:768px){.vals-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){.vals-grid{grid-template-columns:1fr;}}
+
+/* STATS */
+.stats-row{background:#0D4F4A;display:grid;grid-template-columns:repeat(4,1fr);}
+.stat{padding:clamp(32px,5vw,60px) clamp(12px,2vw,32px);text-align:center;border-right:1px solid rgba(245,239,228,.1);}
+.stat:last-child{border-right:none;}
+.stat-n{font-family:'Fraunces',serif;font-size:clamp(30px,5.5vw,58px);font-weight:300;color:#F5EFE4;line-height:1;}
+.stat-l{font-size:clamp(7px,1.1vw,9px);letter-spacing:3px;text-transform:uppercase;color:rgba(245,239,228,.5);margin-top:8px;}
+@media(max-width:560px){.stats-row{grid-template-columns:1fr 1fr;}.stat{border-bottom:1px solid rgba(245,239,228,.1);}.stat:nth-child(2){border-right:none;}.stat:nth-child(3),.stat:nth-child(4){border-bottom:none;}}
+
+/* TEAM */
+#team{background:#FAFAF8;}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2.5vw,28px);margin-top:clamp(36px,5vw,64px);}
+.tm{background:#fff;overflow:hidden;transition:transform .4s,box-shadow .4s;}
+.tm:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.1);}
+.tm-img{height:clamp(200px,22vw,280px);overflow:hidden;}
+.tm-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s;}
+.tm:hover .tm-img img{transform:scale(1.05);}
+.tm-body{padding:clamp(16px,2vw,24px);}
+.tm-name{font-family:'Fraunces',serif;font-size:clamp(16px,1.8vw,20px);color:#0D4F4A;margin-bottom:4px;}
+.tm-role{font-size:clamp(9px,1.1vw,11px);letter-spacing:2px;text-transform:uppercase;color:#2E8B84;margin-bottom:8px;}
+.tm-desc{font-size:clamp(10px,1.2vw,12px);color:#6B6B60;line-height:1.8;}
+@media(max-width:900px){.team-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){.team-grid{grid-template-columns:1fr;}}
+
+/* CTA BANNER */
+.cta-banner{background:#0D4F4A;padding:clamp(60px,8vw,100px) clamp(16px,5vw,72px);text-align:center;}
+.cta-banner h2{font-family:'Fraunces',serif;font-size:clamp(28px,5vw,60px);font-weight:300;color:#F5EFE4;margin-bottom:20px;}
+.cta-banner h2 em{font-style:italic;}
+.cta-banner p{font-size:clamp(12px,1.4vw,14px);color:rgba(245,239,228,.6);max-width:480px;margin:0 auto 36px;line-height:1.9;}
+.cta-banner a{display:inline-block;background:#F5EFE4;color:#0D4F4A;padding:clamp(14px,2vw,18px) clamp(32px,5vw,56px);font-size:clamp(10px,1.3vw,12px);letter-spacing:3px;text-transform:uppercase;font-weight:500;transition:all .3s;}
+.cta-banner a:hover{background:#DDD3C0;}
+
+/* FOOTER */
+footer{background:#080808;padding:clamp(44px,6vw,80px) clamp(16px,5vw,72px) 0;border-top:1px solid rgba(13,79,74,.3);}
+.ft-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:clamp(20px,4vw,52px);padding-bottom:clamp(36px,5vw,52px);border-bottom:1px solid rgba(255,255,255,.06);}
+.ft-logo{font-family:'Fraunces',serif;font-size:clamp(20px,3vw,28px);font-weight:300;color:#F5EFE4;letter-spacing:3px;display:block;margin-bottom:14px;}
+.ft-about{font-size:clamp(10px,1.2vw,11px);color:rgba(255,255,255,.28);line-height:2;max-width:240px;}
+.ft-head{font-size:clamp(7px,1vw,9px);letter-spacing:4px;text-transform:uppercase;color:#2E8B84;margin-bottom:18px;}
+.ft-links{list-style:none;}
+.ft-links li{margin-bottom:10px;}
+.ft-links a{font-size:clamp(10px,1.2vw,12px);color:rgba(255,255,255,.32);transition:color .3s;}
+.ft-links a:hover{color:rgba(255,255,255,.8);}
+@media(max-width:720px){.ft-top{grid-template-columns:1fr 1fr;}}
+@media(max-width:400px){.ft-top{grid-template-columns:1fr;}}
+.ft-bottom{display:flex;flex-direction:column;align-items:center;gap:14px;padding:clamp(18px,3vw,28px) 0 clamp(20px,3vw,28px);text-align:center;}
+.ft-socs{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+.ft-soc{width:clamp(34px,4.5vw,40px);height:clamp(34px,4.5vw,40px);border:1px solid rgba(13,79,74,.5);display:flex;align-items:center;justify-content:center;color:#2E8B84;font-size:11px;font-weight:600;transition:all .3s;}
+.ft-soc:hover{background:#0D4F4A;border-color:#0D4F4A;color:#F5EFE4;}
+.ft-copy{font-size:clamp(9px,1.2vw,10px);color:rgba(255,255,255,.2);}
+.wa{position:fixed;bottom:clamp(16px,3vw,28px);right:clamp(16px,3vw,28px);z-index:9000;width:clamp(48px,6.5vw,58px);height:clamp(48px,6.5vw,58px);background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .3s;}
+.wa:hover{transform:scale(1.12);}
+.wa svg{width:clamp(22px,3.5vw,28px);height:clamp(22px,3.5vw,28px);}
+.rv{opacity:0;transform:translateY(32px);}
+.rv.in{opacity:1;transform:translateY(0);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);}
+.rv.d1.in{transition-delay:.1s;}.rv.d2.in{transition-delay:.2s;}.rv.d3.in{transition-delay:.3s;}
+</style>
+</head>
+<body>
+<a href="https://wa.me/971XXXXXXXXX" target="_blank" class="wa"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<div class="mob-menu" id="mm">
+  <a href="index.html" onclick="closeMM()">Home</a>
+  <a href="properties.html" onclick="closeMM()">Properties</a>
+  <a href="about.html" onclick="closeMM()">About</a>
+  <a href="contact.html" onclick="closeMM()">Contact</a>
+  <a href="contact.html" onclick="closeMM()" class="mob-cta-link">Enquire Now</a>
+</div>
+<nav id="nav">
+  <a href="index.html" class="n-logo">IMAKSA</a>
+  <ul class="n-links"><li><a href="properties.html">Properties</a></li><li><a href="about.html" class="active">About</a></li><li><a href="index.html#services">Services</a></li><li><a href="index.html#reviews">Reviews</a></li></ul>
+  <a href="contact.html" class="n-cta">Enquire</a>
+  <button class="n-hbtn" id="hbtn"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-tag">Who We Are</div>
+  <h1 class="page-hero-title">About <em>IMAKSA</em></h1>
+</div>
+
+<!-- STORY -->
+<section class="sec">
+  <div class="story-grid">
+    <div class="story-img rv">
+      <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80" alt="Dubai">
+      <div class="story-badge"><div class="sb-n">12+</div><div class="sb-l">Years of Trust</div></div>
+    </div>
+    <div>
+      <div class="sec-tag rv">Our Story</div>
+      <h2 class="sec-h rv">Rooted in <em>Trust,</em><br>Built on Results</h2>
+      <p class="rv" style="font-size:clamp(12px,1.4vw,14px);line-height:2.1;color:#6B6B60;margin-top:clamp(16px,2.5vw,24px);">Founded in 2012, IMAKSA Real Estate has grown from a boutique agency into one of Dubai's most trusted property firms. We've helped over 500 families, investors, and businesses find their perfect space in the UAE.</p>
+      <p class="rv" style="font-size:clamp(12px,1.4vw,14px);line-height:2.1;color:#6B6B60;margin-top:16px;">Our philosophy is simple — treat every client like family. No hidden fees, no pressure tactics. Just honest advice, deep market knowledge, and genuine care for your success.</p>
+      <p class="rv" style="font-size:clamp(12px,1.4vw,14px);line-height:2.1;color:#6B6B60;margin-top:16px;">From first-time buyers to seasoned investors building multi-billion AED portfolios, we bring the same dedication to every relationship we build.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="stat rv"><div class="stat-n" data-t="500" data-s="+">0</div><div class="stat-l">Properties Sold</div></div>
+  <div class="stat rv d1"><div class="stat-n" data-t="12" data-s="+">0</div><div class="stat-l">Years Experience</div></div>
+  <div class="stat rv d2"><div class="stat-n" data-t="98" data-s="%">0</div><div class="stat-l">Satisfaction Rate</div></div>
+  <div class="stat rv d3"><div class="stat-n" data-t="2" data-s="B+">0</div><div class="stat-l">AED Portfolio</div></div>
+</div>
+
+<!-- VALUES -->
+<section class="sec" id="values">
+  <div class="rv"><div class="sec-tag">What We Stand For</div><h2 class="sec-h">Our <em>Core Values</em></h2></div>
+  <div class="vals-grid">
+    <div class="val rv"><div class="val-icon">🤝</div><div class="val-title">Transparency</div><div class="val-desc">No hidden fees, no surprises. We believe every client deserves complete clarity at every step of the process.</div></div>
+    <div class="val rv d1"><div class="val-icon">🎯</div><div class="val-title">Expertise</div><div class="val-desc">12+ years of navigating Dubai's market means we see opportunities, risks, and deals that others simply miss.</div></div>
+    <div class="val rv d2"><div class="val-icon">💎</div><div class="val-title">Excellence</div><div class="val-desc">From first call to final handover, we deliver a premium experience that matches the quality of the properties we represent.</div></div>
+    <div class="val rv"><div class="val-icon">❤️</div><div class="val-title">Care</div><div class="val-desc">We treat every client like family — with the same dedication and honesty we'd want for our own loved ones.</div></div>
+    <div class="val rv d1"><div class="val-icon">🌍</div><div class="val-title">Global Reach</div><div class="val-desc">Serving clients from 40+ countries, we understand the needs of NRIs, expats, and international investors.</div></div>
+    <div class="val rv d2"><div class="val-icon">📈</div><div class="val-title">Results</div><div class="val-desc">98% client satisfaction and a AED 2B+ portfolio speaks louder than any promise we could make.</div></div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="sec" id="team">
+  <div class="rv"><div class="sec-tag">The People Behind IMAKSA</div><h2 class="sec-h">Meet Our <em>Team</em></h2></div>
+  <div class="team-grid">
+    <div class="tm rv">
+      <div class="tm-img"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="CEO" loading="lazy"></div>
+      <div class="tm-body"><div class="tm-name">Mohammed Al Maktoum</div><div class="tm-role">CEO & Founder</div><div class="tm-desc">12 years of Dubai real estate expertise. Former RERA advisor.</div></div>
+    </div>
+    <div class="tm rv d1">
+      <div class="tm-img"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" alt="Director" loading="lazy"></div>
+      <div class="tm-body"><div class="tm-name">Sarah Al Hashimi</div><div class="tm-role">Sales Director</div><div class="tm-desc">Luxury property specialist. Over AED 500M in transactions.</div></div>
+    </div>
+    <div class="tm rv d2">
+      <div class="tm-img"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Advisor" loading="lazy"></div>
+      <div class="tm-body"><div class="tm-name">Raj Patel</div><div class="tm-role">Investment Advisor</div><div class="tm-desc">NRI & expat specialist. Fluent in English, Hindi, Gujarati.</div></div>
+    </div>
+    <div class="tm rv d3">
+      <div class="tm-img"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="Manager" loading="lazy"></div>
+      <div class="tm-body"><div class="tm-name">Fatima Al Zaabi</div><div class="tm-role">Property Manager</div><div class="tm-desc">Expert in rental management and tenant relations across Dubai.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-banner">
+  <h2>Ready to Find Your<br><em>Dream Property?</em></h2>
+  <p>Let's start your journey together. Our team is ready to help you find the perfect property in Dubai.</p>
+  <a href="contact.html">Get in Touch Today</a>
+</div>
+
+<footer>
+  <div class="ft-top">
+    <div><span class="ft-logo">IMAKSA</span><p class="ft-about">Dubai's trusted property partner. Connecting clients with extraordinary homes since 2012. RERA Licensed.</p></div>
+    <div><div class="ft-head">Properties</div><ul class="ft-links"><li><a href="properties.html">Villas & Mansions</a></li><li><a href="properties.html">Penthouses</a></li><li><a href="properties.html">Apartments</a></li><li><a href="properties.html">Off-Plan</a></li><li><a href="properties.html">Commercial</a></li></ul></div>
+    <div><div class="ft-head">Company</div><ul class="ft-links"><li><a href="about.html">About IMAKSA</a></li><li><a href="about.html#team">Our Team</a></li><li><a href="careers.html">Careers</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><div class="ft-head">Contact</div><ul class="ft-links"><li><a href="contact.html">Business Bay, Dubai</a></li><li><a href="tel:+971XXXXXXXX">+971 4 XXX XXXX</a></li><li><a href="mailto:info@imaksa.ae">info@imaksa.ae</a></li><li>Mon–Sat 9am–7pm</li></ul></div>
+  </div>
+  <div class="ft-bottom"><div class="ft-socs"><a href="#" class="ft-soc">in</a><a href="#" class="ft-soc">ig</a><a href="#" class="ft-soc">wa</a><a href="#" class="ft-soc">fb</a></div><p class="ft-copy">© 2025 IMAKSA Properties LLC. RERA Licensed. All Rights Reserved.</p></div>
+</footer>
+<script>
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>50));
+const hbtn=document.getElementById('hbtn'),mm=document.getElementById('mm');
+hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');mm.classList.toggle('open');document.body.style.overflow=mm.classList.contains('open')?'hidden':'';});
+function closeMM(){hbtn.classList.remove('open');mm.classList.remove('open');document.body.style.overflow='';}
+const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.07});
+document.querySelectorAll('.rv').forEach(r=>obs.observe(r));
+const cobs=new IntersectionObserver(en=>{en.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,t=+el.dataset.t,s=el.dataset.s||'';let c=0;const st=t/55;const ti=setInterval(()=>{c=Math.min(c+st,t);el.textContent=Math.floor(c)+s;if(c>=t)clearInterval(ti);},18);cobs.unobserve(el);});},{threshold:.5});
+document.querySelectorAll('[data-t]').forEach(c=>cobs.observe(c));
+</script>
+</body>
+</html>

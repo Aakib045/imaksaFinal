@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — IMAKSA Dubai Real Estate</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:16px;scroll-behavior:smooth;overflow-x:hidden;}
+body{background:#FAFAF8;color:#0A0A0A;font-family:'Inter',sans-serif;font-weight:300;overflow-x:hidden;}
+img{max-width:100%;height:auto;display:block;}a{text-decoration:none;color:inherit;}
+::-webkit-scrollbar{width:2px;}::-webkit-scrollbar-thumb{background:#0D4F4A;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:clamp(14px,2.5vw,26px) clamp(16px,4vw,60px);transition:all .4s;width:100%;}
+nav.sc{background:rgba(250,250,248,.97);backdrop-filter:blur(20px);padding:clamp(10px,1.8vw,16px) clamp(16px,4vw,60px);border-bottom:1px solid rgba(13,79,74,.12);box-shadow:0 2px 24px rgba(0,0,0,.07);}
+.n-logo{font-family:'Fraunces',serif;font-size:clamp(16px,2.5vw,22px);font-weight:400;color:#0D4F4A;letter-spacing:clamp(2px,1vw,4px);}
+.n-links{display:flex;gap:clamp(20px,3vw,40px);list-style:none;}
+.n-links a{color:#6B6B60;font-size:clamp(9px,1.1vw,11px);letter-spacing:1.5px;text-transform:uppercase;transition:color .3s;}
+.n-links a:hover,.n-links a.active{color:#0D4F4A;}
+.n-cta{background:#0D4F4A;color:#F5EFE4;padding:clamp(9px,1.4vw,12px) clamp(18px,2.5vw,28px);font-size:clamp(9px,1.1vw,10px);letter-spacing:2px;text-transform:uppercase;transition:all .3s;font-family:'Inter',sans-serif;}
+.n-cta:hover{background:#1A6B65;}
+.n-hbtn{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:8px;cursor:pointer;}
+.n-hbtn span{display:block;width:22px;height:1.5px;background:#0D4F4A;transition:all .35s;}
+.n-hbtn.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px);}
+.n-hbtn.open span:nth-child(2){opacity:0;}
+.n-hbtn.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px);}
+@media(max-width:900px){.n-links,.n-cta{display:none!important;}.n-hbtn{display:flex!important;}}
+.mob-menu{display:none;position:fixed;inset:0;background:rgba(13,79,74,.99);z-index:998;flex-direction:column;align-items:center;justify-content:center;gap:clamp(24px,5vw,40px);}
+.mob-menu.open{display:flex;}
+.mob-menu a{font-family:'Fraunces',serif;font-size:clamp(28px,8vw,52px);font-weight:300;color:#F5EFE4;letter-spacing:3px;}
+.mob-cta-link{border:1px solid rgba(245,239,228,.4);padding:clamp(12px,3vw,18px) clamp(32px,6vw,56px)!important;font-size:clamp(14px,3.5vw,20px)!important;}
+.page-hero{background:#0D4F4A;padding:clamp(120px,15vw,180px) clamp(16px,5vw,72px) clamp(60px,8vw,100px);text-align:center;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1400&q=80') center/cover no-repeat;opacity:.1;}
+.page-hero-tag{font-size:clamp(8px,1.3vw,10px);letter-spacing:5px;text-transform:uppercase;color:rgba(245,239,228,.6);margin-bottom:16px;position:relative;}
+.page-hero-title{font-family:'Fraunces',serif;font-size:clamp(36px,7vw,88px);font-weight:300;color:#F5EFE4;position:relative;}
+.page-hero-title em{font-style:italic;}
+
+/* BLOG */
+.blog-section{padding:clamp(60px,8vw,100px) clamp(16px,5vw,72px);}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,36px);}
+@media(max-width:900px){.blog-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:520px){.blog-grid{grid-template-columns:1fr;}}
+
+/* featured post */
+.blog-featured{grid-column:1/-1;display:grid;grid-template-columns:1.4fr 1fr;gap:0;background:#fff;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,.06);margin-bottom:clamp(20px,3vw,36px);transition:box-shadow .4s;}
+.blog-featured:hover{box-shadow:0 12px 48px rgba(0,0,0,.12);}
+@media(max-width:700px){.blog-featured{grid-template-columns:1fr;}}
+.bf-img{overflow:hidden;min-height:clamp(220px,30vw,380px);}
+.bf-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s;}
+.blog-featured:hover .bf-img img{transform:scale(1.04);}
+.bf-body{padding:clamp(28px,4vw,56px);display:flex;flex-direction:column;justify-content:center;}
+.bf-tag{font-size:clamp(8px,1vw,9px);letter-spacing:3px;text-transform:uppercase;color:#2E8B84;margin-bottom:14px;}
+.bf-title{font-family:'Fraunces',serif;font-size:clamp(22px,3vw,36px);font-weight:300;color:#0D4F4A;line-height:1.2;margin-bottom:16px;}
+.bf-title em{font-style:italic;}
+.bf-desc{font-size:clamp(11px,1.3vw,13px);color:#6B6B60;line-height:1.9;margin-bottom:24px;}
+.bf-meta{font-size:clamp(9px,1.1vw,10px);letter-spacing:2px;text-transform:uppercase;color:#aaa;margin-bottom:20px;}
+.bf-link{display:inline-block;color:#0D4F4A;font-size:clamp(9px,1.2vw,11px);letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid #2E8B84;padding-bottom:3px;transition:letter-spacing .3s;}
+.bf-link:hover{letter-spacing:4px;}
+
+/* regular card */
+.bc{background:#fff;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.06);transition:box-shadow .4s,transform .4s;}
+.bc:hover{box-shadow:0 12px 40px rgba(0,0,0,.1);transform:translateY(-4px);}
+.bc-img{height:clamp(180px,20vw,240px);overflow:hidden;}
+.bc-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s;}
+.bc:hover .bc-img img{transform:scale(1.06);}
+.bc-body{padding:clamp(20px,2.5vw,28px);}
+.bc-tag{font-size:clamp(7px,1vw,9px);letter-spacing:3px;text-transform:uppercase;color:#2E8B84;margin-bottom:10px;}
+.bc-title{font-family:'Fraunces',serif;font-size:clamp(16px,1.8vw,21px);font-weight:300;color:#0D4F4A;line-height:1.3;margin-bottom:10px;}
+.bc-desc{font-size:clamp(10px,1.2vw,12px);color:#6B6B60;line-height:1.85;margin-bottom:16px;}
+.bc-meta{font-size:clamp(8px,1vw,9px);letter-spacing:2px;text-transform:uppercase;color:#aaa;margin-bottom:14px;}
+.bc-link{font-size:clamp(8px,1vw,10px);letter-spacing:2px;text-transform:uppercase;color:#0D4F4A;border-bottom:1px solid #2E8B84;padding-bottom:2px;transition:letter-spacing .3s;}
+.bc-link:hover{letter-spacing:4px;}
+
+/* newsletter */
+.newsletter{background:#0D4F4A;padding:clamp(56px,7vw,96px) clamp(16px,5vw,72px);text-align:center;}
+.nl-title{font-family:'Fraunces',serif;font-size:clamp(26px,4vw,52px);font-weight:300;color:#F5EFE4;margin-bottom:14px;}
+.nl-title em{font-style:italic;}
+.nl-sub{font-size:clamp(12px,1.4vw,14px);color:rgba(245,239,228,.6);margin-bottom:clamp(28px,4vw,44px);}
+.nl-form{display:flex;gap:0;max-width:480px;margin:0 auto;flex-wrap:wrap;}
+.nl-input{flex:1;min-width:200px;background:rgba(245,239,228,.1);border:1px solid rgba(245,239,228,.2);color:#F5EFE4;padding:clamp(13px,1.8vw,16px) clamp(16px,2.5vw,24px);font-family:'Inter',sans-serif;font-size:clamp(11px,1.3vw,13px);outline:none;}
+.nl-input::placeholder{color:rgba(245,239,228,.45);}
+.nl-btn{background:#F5EFE4;color:#0D4F4A;border:none;padding:clamp(13px,1.8vw,16px) clamp(20px,3vw,32px);font-family:'Inter',sans-serif;font-size:clamp(9px,1.2vw,11px);letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:background .3s;font-weight:500;white-space:nowrap;}
+.nl-btn:hover{background:#DDD3C0;}
+
+footer{background:#080808;padding:clamp(44px,6vw,80px) clamp(16px,5vw,72px) 0;border-top:1px solid rgba(13,79,74,.3);}
+.ft-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:clamp(20px,4vw,52px);padding-bottom:clamp(36px,5vw,52px);border-bottom:1px solid rgba(255,255,255,.06);}
+.ft-logo{font-family:'Fraunces',serif;font-size:clamp(20px,3vw,28px);font-weight:300;color:#F5EFE4;letter-spacing:3px;display:block;margin-bottom:14px;}
+.ft-about{font-size:clamp(10px,1.2vw,11px);color:rgba(255,255,255,.28);line-height:2;max-width:240px;}
+.ft-head{font-size:clamp(7px,1vw,9px);letter-spacing:4px;text-transform:uppercase;color:#2E8B84;margin-bottom:18px;}
+.ft-links{list-style:none;}
+.ft-links li{margin-bottom:10px;}
+.ft-links a{font-size:clamp(10px,1.2vw,12px);color:rgba(255,255,255,.32);transition:color .3s;}
+.ft-links a:hover{color:rgba(255,255,255,.8);}
+@media(max-width:720px){.ft-top{grid-template-columns:1fr 1fr;}}
+@media(max-width:400px){.ft-top{grid-template-columns:1fr;}}
+.ft-bottom{display:flex;flex-direction:column;align-items:center;gap:14px;padding:clamp(18px,3vw,28px) 0 clamp(20px,3vw,28px);text-align:center;}
+.ft-socs{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+.ft-soc{width:clamp(34px,4.5vw,40px);height:clamp(34px,4.5vw,40px);border:1px solid rgba(13,79,74,.5);display:flex;align-items:center;justify-content:center;color:#2E8B84;font-size:11px;font-weight:600;transition:all .3s;}
+.ft-soc:hover{background:#0D4F4A;border-color:#0D4F4A;color:#F5EFE4;}
+.ft-copy{font-size:clamp(9px,1.2vw,10px);color:rgba(255,255,255,.2);}
+.wa{position:fixed;bottom:clamp(16px,3vw,28px);right:clamp(16px,3vw,28px);z-index:9000;width:clamp(48px,6.5vw,58px);height:clamp(48px,6.5vw,58px);background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .3s;}
+.wa:hover{transform:scale(1.12);}
+.wa svg{width:clamp(22px,3.5vw,28px);height:clamp(22px,3.5vw,28px);}
+.rv{opacity:0;transform:translateY(32px);}
+.rv.in{opacity:1;transform:translateY(0);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);}
+.rv.d1.in{transition-delay:.1s;}.rv.d2.in{transition-delay:.2s;}
+</style>
+</head>
+<body>
+<a href="https://wa.me/971XXXXXXXXX" target="_blank" class="wa"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<div class="mob-menu" id="mm">
+  <a href="index.html" onclick="closeMM()">Home</a>
+  <a href="properties.html" onclick="closeMM()">Properties</a>
+  <a href="about.html" onclick="closeMM()">About</a>
+  <a href="contact.html" onclick="closeMM()">Contact</a>
+  <a href="contact.html" onclick="closeMM()" class="mob-cta-link">Enquire Now</a>
+</div>
+<nav id="nav">
+  <a href="index.html" class="n-logo">IMAKSA</a>
+  <ul class="n-links"><li><a href="properties.html">Properties</a></li><li><a href="about.html">About</a></li><li><a href="index.html#services">Services</a></li><li><a href="blog.html" class="active">Blog</a></li></ul>
+  <a href="contact.html" class="n-cta">Enquire</a>
+  <button class="n-hbtn" id="hbtn"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-tag">Insights & Market News</div>
+  <h1 class="page-hero-title">Our <em>Blog</em></h1>
+</div>
+
+<section class="blog-section">
+  <!-- FEATURED -->
+  <div class="blog-featured rv">
+    <div class="bf-img"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=900&q=80" alt="Dubai Market 2025" loading="lazy"></div>
+    <div class="bf-body">
+      <div class="bf-tag">Market Update</div>
+      <h2 class="bf-title">Dubai Real Estate Market <em>2025:</em> What Investors Need to Know</h2>
+      <div class="bf-meta">June 1, 2025 &nbsp;·&nbsp; 8 min read</div>
+      <p class="bf-desc">Dubai's property market continues to break records in 2025. With transaction volumes up 34% year-on-year and rental yields hitting 8%+, here's everything you need to know before investing.</p>
+      <a href="contact.html" class="bf-link">Read Full Article →</a>
+    </div>
+  </div>
+
+  <!-- GRID -->
+  <div class="blog-grid">
+    <div class="bc rv">
+      <div class="bc-img"><img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80" alt="Palm Jumeirah" loading="lazy"></div>
+      <div class="bc-body">
+        <div class="bc-tag">Buying Guide</div>
+        <div class="bc-title">How to Buy Property in Dubai as a Foreigner in 2025</div>
+        <div class="bc-meta">May 20, 2025 · 6 min read</div>
+        <p class="bc-desc">A complete step-by-step guide for international buyers — from choosing a location to getting your title deed.</p>
+        <a href="contact.html" class="bc-link">Read More →</a>
+      </div>
+    </div>
+    <div class="bc rv d1">
+      <div class="bc-img"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" alt="Golden Visa" loading="lazy"></div>
+      <div class="bc-body">
+        <div class="bc-tag">Golden Visa</div>
+        <div class="bc-title">UAE Golden Visa: The Complete 2025 Guide for Property Investors</div>
+        <div class="bc-meta">May 14, 2025 · 5 min read</div>
+        <p class="bc-desc">Everything you need to know about getting UAE residency through real estate investment — eligibility, costs, and timeline.</p>
+        <a href="contact.html" class="bc-link">Read More →</a>
+      </div>
+    </div>
+    <div class="bc rv d2">
+      <div class="bc-img"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Off-Plan" loading="lazy"></div>
+      <div class="bc-body">
+        <div class="bc-tag">Investment</div>
+        <div class="bc-title">Off-Plan vs Ready Property: Which is Better for Investors?</div>
+        <div class="bc-meta">May 8, 2025 · 7 min read</div>
+        <p class="bc-desc">We break down the pros and cons of both options so you can make the smartest decision for your portfolio.</p>
+        <a href="contact.html" class="bc-link">Read More →</a>
+      </div>
+    </div>
+    <div class="bc rv">
+      <div class="bc-img"><img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=600&q=80" alt="Rental Yield" loading="lazy"></div>
+      <div class="bc-body">
+        <div class="bc-tag">Investment</div>
+        <div class="bc-title">Top 5 Dubai Neighborhoods for Highest Rental Yields in 2025</div>
+        <div class="bc-meta">April 28, 2025 · 5 min read</div>
+        <p class="bc-desc">From Business Bay to JVC — we rank Dubai's best areas for rental returns based on real transaction data.</p>
+        <a href="contact.html" class="bc-link">Read More →</a>
+      </div>
+    </div>
+    <div class="bc rv d1">
+      <div class="bc-img"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="NRI Guide" loading="lazy"></div>
+      <div class="bc-body">
+        <div class="bc-tag">NRI Guide</div>
+        <div class="bc-title">NRI Guide to Investing in Dubai Real Estate from India</div>
+        <div class="bc-meta">April 18, 2025 · 6 min read</div>
+        <p class="bc-desc">Tax benefits, repatriation rules, and the best areas for Indian investors looking to buy in Dubai.</p>
+        <a href="contact.html" class="bc-link">Read More →</a>
+      </div>
+    </div>
+    <div class="bc rv d2">
+      <div class="bc-img"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80" alt="Property Management" loading="lazy"></div>
+      <div class="bc-body">
+        <div class="bc-tag">Management</div>
+        <div class="bc-title">Why Property Management is the Key to Passive Income in Dubai</div>
+        <div class="bc-meta">April 10, 2025 · 4 min read</div>
+        <p class="bc-desc">How professional property management turns your Dubai investment into truly passive income — even from overseas.</p>
+        <a href="contact.html" class="bc-link">Read More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <h2 class="nl-title rv">Stay <em>Ahead</em> of the Market</h2>
+  <p class="nl-sub rv">Get weekly Dubai real estate insights delivered to your inbox. No spam, ever.</p>
+  <div class="nl-form rv">
+    <input type="email" class="nl-input" placeholder="Enter your email address">
+    <button class="nl-btn">Subscribe</button>
+  </div>
+</div>
+
+<footer>
+  <div class="ft-top">
+    <div><span class="ft-logo">IMAKSA</span><p class="ft-about">Dubai's trusted property partner. Connecting clients with extraordinary homes since 2012. RERA Licensed.</p></div>
+    <div><div class="ft-head">Properties</div><ul class="ft-links"><li><a href="properties.html">Villas & Mansions</a></li><li><a href="properties.html">Penthouses</a></li><li><a href="properties.html">Apartments</a></li><li><a href="properties.html">Off-Plan</a></li><li><a href="properties.html">Commercial</a></li></ul></div>
+    <div><div class="ft-head">Company</div><ul class="ft-links"><li><a href="about.html">About IMAKSA</a></li><li><a href="about.html#team">Our Team</a></li><li><a href="careers.html">Careers</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><div class="ft-head">Contact</div><ul class="ft-links"><li><a href="contact.html">Business Bay, Dubai</a></li><li><a href="tel:+971XXXXXXXX">+971 4 XXX XXXX</a></li><li><a href="mailto:info@imaksa.ae">info@imaksa.ae</a></li><li>Mon–Sat 9am–7pm</li></ul></div>
+  </div>
+  <div class="ft-bottom"><div class="ft-socs"><a href="#" class="ft-soc">in</a><a href="#" class="ft-soc">ig</a><a href="#" class="ft-soc">wa</a><a href="#" class="ft-soc">fb</a></div><p class="ft-copy">© 2025 IMAKSA Properties LLC. RERA Licensed. All Rights Reserved.</p></div>
+</footer>
+<script>
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>50));
+const hbtn=document.getElementById('hbtn'),mm=document.getElementById('mm');
+hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');mm.classList.toggle('open');document.body.style.overflow=mm.classList.contains('open')?'hidden':'';});
+function closeMM(){hbtn.classList.remove('open');mm.classList.remove('open');document.body.style.overflow='';}
+const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.07});
+document.querySelectorAll('.rv').forEach(r=>obs.observe(r));
+</script>
+</body>
+</html>
